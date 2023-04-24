@@ -20,7 +20,7 @@ Ones you have copy this packer.lua content of the repo, you can run:
 Then when you open nvim, you will have the plugins installed.
 copy all the folders in the repo to your nvim config folder.
 Example:
-cp -R /Users/augustogodoy/Desktop/lua/lua_nvim_config/nvim/ ~/.config/nvim/
+cp -R /Users/$UserName/Desktop/$RepoConfig/lua_nvim_config/nvim/ ~/.config/nvim/
 To used prettier you need to install this repo :
 https://github.com/fsouza/prettierd
 
