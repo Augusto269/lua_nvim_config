@@ -41,9 +41,15 @@ return require('packer').startup(function(use)
 }
 use {
   'nvim-tree/nvim-tree.lua',
+  requires = {
+    'nvim-tree/nvim-web-devicons', -- optional
+  },
   config = function()
     require("nvim-tree").setup {}
   end
 }
-use ('ThePrimeagen/vim-be-good')
+    use ('ThePrimeagen/vim-be-good')
+    use ('kevinhwang91/nvim-hlslens')
+    use ('jose-elias-alvarez/null-ls.nvim')
+    use ('MunifTanjim/prettier.nvim')
 end)
