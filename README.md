@@ -6,6 +6,8 @@ https://webinstall.dev/nerdfont/
 ## How to configure the font for each terminal
 https://webinstall.dev/nerdfont/
 
+## Update config :
+cp -R .config/nvim $GitRepo/lua_nvim_config/
 ## How to setup :
 Prerequisite: install ripgrep. https://github.com/BurntSushi/ripgrep
 
