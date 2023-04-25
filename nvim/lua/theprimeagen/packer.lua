@@ -48,8 +48,10 @@ use {
     require("nvim-tree").setup {}
   end
 }
-    use ('ThePrimeagen/vim-be-good')
+    use ('ThePrimeagen/vim-be-good') -- game for learing nvim
     use ('kevinhwang91/nvim-hlslens')
     use ('jose-elias-alvarez/null-ls.nvim')
-    use ('MunifTanjim/prettier.nvim')
+    use ('MunifTanjim/prettier.nvim') -- prettier / formmater
+    use ('terrortylor/nvim-comment') -- comment code easy
+    use ('feline-nvim/feline.nvim') -- status bar
 end)
