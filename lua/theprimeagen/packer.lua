@@ -10,7 +10,7 @@ return require('packer').startup(function(use)
   use 'rstacruz/vim-closer'
 
   use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
+	  'nvim-telescope/telescope.nvim', tag = '0.1.4',
 	  -- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
@@ -54,4 +54,16 @@ use {
     use ('MunifTanjim/prettier.nvim') -- prettier / formmater
     use ('terrortylor/nvim-comment') -- comment code easy
     use ('feline-nvim/feline.nvim') -- status bar
+    use({
+  'projekt0n/github-nvim-theme',
+  config = function()
+    require('github-theme').setup({
+      -- ...
+    })
+
+    vim.cmd('colorscheme github_dark')
+  end
+})
+
+
 end)

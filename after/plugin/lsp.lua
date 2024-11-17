@@ -1,38 +1,16 @@
 local lsp = require("lsp-zero")
-local configs = require('lspconfig.configs')
-local lspconfig = require('lspconfig')
-if not configs.golangcilsp then
-  configs.golangcilsp = {
-    default_config = {
-      cmd = { 'golangci-lint-langserver' },
-      root_dir = lspconfig.util.root_pattern('.git', 'go.mod'),
-      filetypes = { 'go' },
-      init_options = {
-        command = { 'golangci-lint', 'run', '--fast', '--out-format', 'json' },
-      },
-    },
-  }
-end
-lspconfig.golangcilsp.setup{}
-
+local lspconfig = require'lspconfig'
+local lspconfig_configs = require'lspconfig.configs'
+local lspconfig_util = require 'lspconfig.util'
 lsp.preset("recommended")
 
 lsp.ensure_installed({
-  'eslint',
-  'sumneko_lua',
-	'tsserver',
+  'tsserver',
+  'rust_analyzer',
 })
 
 -- Fix Undefined global 'vim'
-lsp.configure('lua-language-server', {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
-    }
-})
+lsp.nvim_workspace()
 
 
 local cmp = require('cmp')
@@ -75,10 +53,19 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
+local volar_cmd = {'vue-language-server', '--stdio'}
+local volar_root_dir = lspconfig_util.root_pattern 'package.json'
 
+-- Configuración para Volar
+lspconfig.volar.setup({
+    -- Aquí puedes especificar opciones de configuración para Volar, como por ejemplo:
+    filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+    settings = {
+        volar = {
+            -- Aquí puedes añadir configuraciones específicas de Volar
+        },
+    },
+})
 lsp.setup()
 
-vim.diagnostic.config({
-    virtual_text = true
-})
 
