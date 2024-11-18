@@ -1,9 +1,5 @@
   local tree = require("nvim-tree")
-
-  tree.setup({
-    hijack_cursor = true,
-    sync_root_with_cwd = true,
-     on_attach = function(bufnr)
+  local my_attach_config = function(bufnr)
     local api = require('nvim-tree.api')
 
     local function opts(desc)
@@ -20,8 +16,13 @@
     vim.keymap.set('n', 's', api.node.run.system, opts('Run System Command'))
     vim.keymap.set('n', 'W', api.tree.collapse_all, opts('Collapse All'))
     vim.keymap.set('n', 'g?', api.tree.toggle_help, opts('Toggle Help'))
-  end,
-    view = {
+  end
+
+
+  tree.setup({
+    hijack_cursor = true,
+    sync_root_with_cwd = true,
+     view = {
       adaptive_size = false,
           },
     renderer = {
