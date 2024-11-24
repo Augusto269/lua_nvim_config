@@ -25,6 +25,9 @@ autocmd("BufWinEnter", {
         vim.keymap.set('n', '<leader>gs', ':Git <CR>,{}')
         -- Git Diff file
         vim.keymap.set('n', '<leader>gv', ':Gvdiff <CR>,{}')
+        -- Git Commit
+        vim.keymap.set("n", "<leader>gc", ":Git commit<CR>", { noremap = true, silent = true })
+
 
         -- Shortcut to select a branch for pushing and setting up tracking
         vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts)
