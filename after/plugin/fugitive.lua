@@ -21,6 +21,19 @@ autocmd("BufWinEnter", {
         vim.keymap.set("n", "<leader>P", function()
             vim.cmd.Git({'pull',  '--rebase'})
         end, opts)
+        -- Git Status
+        vim.keymap.set('n', '<leader>gs', ':Git <CR>,{}')
+        -- Git Diff file
+        vim.keymap.set('n', '<leader>gv', ':Gvdiff <CR>,{}')
+
+        -- Shortcut to select a branch for pushing and setting up tracking
+        vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts)
+
+        -- Shortcut to get changes from the left buffer (buffer 2)
+        vim.keymap.set("n", "<leader>dg2", ":diffget 2<CR>", opts)
+
+        -- Shortcut to get changes from the right buffer (buffer 3)
+        vim.keymap.set("n", "<leader>dg3", ":diffget 3<CR>", opts)
 
         -- NOTE: It allows me to easily set the branch i am pushing and any tracking
         -- needed if i did not set the branch up correctly

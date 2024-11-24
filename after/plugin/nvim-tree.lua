@@ -53,6 +53,7 @@
       show_on_dirs = true,
     },
     filters = {
+        dotfiles = false,
       custom = {
         "^.git$",
       },

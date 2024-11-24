@@ -60,20 +60,10 @@ vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], 
 vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
 vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
 
-vim.cmd('colorscheme github_dark_default')
+vim.cmd('colorscheme solarized-osaka')
+
 vim.api.nvim_set_keymap('n', '<Leader>l', '<Cmd>noh<CR>', kopts)
 
--- Configuración de packer
-require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
-  }
-  use 'neovim/nvim-lspconfig'
-  use {'neoclide/coc.nvim', branch = 'release'}
-  -- Tus otros plugins aquí
-end)
 
 -- Configuración de nvim-treesitter
 require'nvim-treesitter.configs'.setup {
@@ -109,5 +99,3 @@ vim.api.nvim_set_keymap('n', 'u', 'u', { noremap = true })
 
 -- Asignar 'u' para deshacer en modo visual
 vim.api.nvim_set_keymap('v', 'u', ':undo<CR>', { noremap = true, silent = true })
-
-
