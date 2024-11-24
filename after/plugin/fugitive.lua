@@ -30,7 +30,7 @@ autocmd("BufWinEnter", {
 
 
         -- Shortcut to select a branch for pushing and setting up tracking
-        vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts)
+        vim.keymap.set("n", "<leader>gt", ":Git push -u origin ", opts)
 
         -- Shortcut to get changes from the left buffer (buffer 2)
         vim.keymap.set("n", "<leader>dg2", ":diffget 2<CR>", opts)
@@ -40,6 +40,5 @@ autocmd("BufWinEnter", {
 
         -- NOTE: It allows me to easily set the branch i am pushing and any tracking
         -- needed if i did not set the branch up correctly
-        vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts);
     end,
 })
