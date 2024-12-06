@@ -52,6 +52,9 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
   vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+  vim.keymap.set("n", "<leader>e", function()
+  vim.diagnostic.open_float(0, { scope = "line" })
+end, { silent = true })
 end)
 local volar_cmd = {'vue-language-server', '--stdio'}
 local volar_root_dir = lspconfig_util.root_pattern 'package.json'
