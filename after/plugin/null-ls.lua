@@ -12,16 +12,17 @@ null_ls.setup({
       end, { buffer = bufnr, desc = "[lsp] format" })
 
       -- format on save
-      vim.api.nvim_clear_autocmds({ buffer = bufnr, group = group })
-      vim.api.nvim_create_autocmd(event, {
-        buffer = bufnr,
-        group = group,
-        callback = function()
-          vim.lsp.buf.format({ bufnr = bufnr, async = async })
-        end,
-        desc = "[lsp] format on save",
-      })
-    end
+ vim.api.nvim_clear_autocmds({ buffer = bufnr, group = group })
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            callback = function()
+                -- Realiza el mismo formateo al guardar que al presionar <Leader>f
+                if vim.bo.filetype ~= "typescriptreact" then  -- Evita archivos TSX
+                    vim.lsp.buf.format({ bufnr = bufnr, async = false })  -- Formateo sincrónico al guardar
+                end
+            end,
+            desc = "[LSP] format on save",
+        })    end
 
     if client.supports_method("textDocument/rangeFormatting") then
       vim.keymap.set("x", "<Leader>f", function()

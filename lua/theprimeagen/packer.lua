@@ -69,4 +69,20 @@ return require('packer').startup(function(use)
       vim.cmd('colorscheme github_dark')
     end
   }
+ use "lukas-reineke/indent-blankline.nvim"
+ use {
+  'filipdutescu/renamer.nvim',
+  branch = 'master',
+  requires = { {'nvim-lua/plenary.nvim'} }
+}
+
+  use {
+  'phaazon/hop.nvim',
+  branch = 'v2', -- optional but strongly recommended
+  config = function()
+    -- you can configure Hop the way you like here; see :h hop-config
+    require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+  end
+}
+
 end)

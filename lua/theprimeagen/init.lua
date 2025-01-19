@@ -16,6 +16,12 @@ function R(name)
     require("plenary.reload").reload_module(name)
 end
 
+
+vim.api.nvim_create_user_command("GitLog", function()
+  vim.cmd("split | term git log --oneline --decorate")
+  vim.cmd("startinsert")
+end, {})
+
 autocmd('TextYankPost', {
     group = yank_group,
     pattern = '*',
@@ -29,10 +35,9 @@ autocmd('TextYankPost', {
 
 autocmd({"BufWritePre"}, {
     group = ThePrimeagenGroup,
-    pattern = "*",
+    pattern = { "*", "!*.tsx" }, -- Aplica a todos menos a *.tsx
     command = [[%s/\s\+$//e]],
 })
-
 -- Configuración de netrw
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
