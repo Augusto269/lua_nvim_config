@@ -5,7 +5,14 @@ local event = "BufWritePre" -- or "BufWritePost"
 local async = event == "BufWritePost"
 
 null_ls.setup({
-  on_attach = function(client, bufnr)
+    debug = true,
+ sources = {
+        null_ls.builtins.formatting.mix.with({
+            command = "mix", -- El comando mix
+            args = { "format", "--stdin-filename", "$FILENAME" },
+            filetypes = { "elixir" }, -- Archivos a los que se aplica
+        }),
+    },  on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then
       vim.keymap.set("n", "<Leader>f", function()
         vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })

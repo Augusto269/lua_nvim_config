@@ -82,15 +82,7 @@ require'nvim-treesitter.configs'.setup {
 
 -- Configuración de LSP
 require'lspconfig'.volar.setup{}
-require'lspconfig'.elixirls.setup{
-  cmd = { "/Users/augustogodoy/elixir-ls/scripts/language.server.sh" },
-  settings = {
-    elixirLS = {
-      dialyzerEnabled = false,
-      fetchDeps = false
-    }
-  }
-}
+
 -- Remapear direcciones de movimiento
 -- Mapeos en modo normal
 -- Mapeos en modo normal

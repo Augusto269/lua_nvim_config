@@ -40,6 +40,8 @@ return require('packer').startup(function(use)
       {'L3MON4D3/LuaSnip'},     -- Required for snippets
     }
   }
+  -- Elixir cfgs
+  use({ "elixir-tools/elixir-tools.nvim", tag = "stable", requires = { "nvim-lua/plenary.nvim" }})
 
   -- Configuration for nvim-tree
   use {
