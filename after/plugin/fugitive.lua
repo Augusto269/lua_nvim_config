@@ -22,9 +22,12 @@ autocmd("BufWinEnter", {
             vim.cmd.Git({'pull',  '--rebase'})
         end, opts)
         -- Git Status
+        --
         vim.keymap.set('n', '<leader>gs', ':Git <CR>,{}')
         -- Git Diff file
-        vim.keymap.set('n', '<leader>gv', ':Gvdiff <CR>,{}')
+                vim.keymap.set('n', '<leader>gv', ':Gvdiff <CR>,{}')
+
+
         -- Git Commit
         vim.keymap.set("n", "<leader>gc", ":Git commit<CR>", { noremap = true, silent = true })
 
@@ -37,7 +40,11 @@ autocmd("BufWinEnter", {
 
         -- Shortcut to get changes from the right buffer (buffer 3)
         vim.keymap.set("n", "<leader>dg3", ":diffget 3<CR>", opts)
+          -- Navegar al siguiente diff en conflicto
+       vim.keymap.set("n", "<leader>dgn", "]c", opts)
 
+        -- Navegar al anterior error con <leader>
+        vim.keymap.set("n", "<leader>dgp", "[c", opts)
         -- NOTE: It allows me to easily set the branch i am pushing and any tracking
         -- needed if i did not set the branch up correctly
     end,

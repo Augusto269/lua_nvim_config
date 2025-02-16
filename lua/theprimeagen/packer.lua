@@ -78,12 +78,41 @@ return require('packer').startup(function(use)
   requires = { {'nvim-lua/plenary.nvim'} }
 }
 
+use {
+  "andrewferrier/debugprint.nvim",
+  config = function()
+    require("debugprint").setup()
+  end
+}
   use {
   'phaazon/hop.nvim',
   branch = 'v2', -- optional but strongly recommended
   config = function()
     -- you can configure Hop the way you like here; see :h hop-config
     require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+  end
+}
+-- nvim copilot:
+use {
+  'CopilotC-Nvim/CopilotChat.nvim',
+  requires = {
+    { 'github/copilot.vim' }, -- o 'zbirenbaum/copilot.lua'
+    { 'nvim-lua/plenary.nvim' },
+  },
+  run = 'make tiktoken', -- Solo en macOS o Linux
+  config = function()
+    require('CopilotChat').setup {
+      -- Opciones de configuración
+    }
+  end,
+}
+-- auto sesion
+use {
+  'rmagatti/auto-session',
+  config = function()
+    require("auto-session").setup {
+      suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/"},
+    }
   end
 }
 
