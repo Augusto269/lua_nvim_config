@@ -2,8 +2,6 @@
 require("theprimeagen.remap")
 require("theprimeagen.set")
 
--- Configuración de Monokai
-require('monokai').setup { palette = require('monokai').pro }
 
 -- Crear grupos de autocmd
 local augroup = vim.api.nvim_create_augroup
@@ -15,6 +13,7 @@ local autocmd = vim.api.nvim_create_autocmd
 function R(name)
     require("plenary.reload").reload_module(name)
 end
+
 
 
 vim.api.nvim_create_user_command("GitLog", function()
@@ -65,7 +64,6 @@ vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], 
 vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
 vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
 
-vim.cmd('colorscheme solarized-osaka')
 
 vim.api.nvim_set_keymap('n', '<Leader>l', '<Cmd>noh<CR>', kopts)
 
@@ -96,3 +94,8 @@ vim.api.nvim_set_keymap('n', 'u', 'u', { noremap = true })
 
 -- Asignar 'u' para deshacer en modo visual
 vim.api.nvim_set_keymap('v', 'u', ':undo<CR>', { noremap = true, silent = true })
+
+-- Theme visual
+ require("catppuccin").setup({ flavour = "frappe" })
+vim.cmd("colorscheme catppuccin")
+

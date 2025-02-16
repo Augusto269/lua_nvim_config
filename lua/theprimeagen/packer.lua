@@ -6,7 +6,6 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-  use 'craftzdog/solarized-osaka.nvim'
   -- Simple plugins can be specified as strings
   use 'rstacruz/vim-closer'
   use 'lewis6991/gitsigns.nvim'
@@ -16,7 +15,6 @@ return require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  use 'tanvirtin/monokai.nvim'
   use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use ('theprimeagen/harpoon')
   use ('tpope/vim-fugitive')
@@ -61,17 +59,7 @@ return require('packer').startup(function(use)
   use ('MunifTanjim/prettier.nvim') -- Prettier / Formatter
   use ('terrortylor/nvim-comment') -- Easy commenting of code
   use ('feline-nvim/feline.nvim') -- Status bar
-  use {
-    'projekt0n/github-nvim-theme',
-    config = function()
-      require('github-theme').setup({
-        -- configuration here if necessary
-      })
-
-      vim.cmd('colorscheme github_dark')
-    end
-  }
- use "lukas-reineke/indent-blankline.nvim"
+   use "lukas-reineke/indent-blankline.nvim"
  use {
   'filipdutescu/renamer.nvim',
   branch = 'master',
@@ -115,5 +103,41 @@ use {
     }
   end
 }
+-- theme instalation
+use {
+  "catppuccin/nvim",
+  as = "catppuccin",
+  config = function()
+    require("catppuccin").setup({
+      flavour = "mocha", -- Opciones: latte, frappe, macchiato, mocha
+      integrations = {
+        treesitter = true,
+        native_lsp = { enabled = true },
+        cmp = true,
+        gitsigns = true,
+        telescope = true,
+        nvimtree = true,
+        indent_blankline = { enabled = true },
+      },
+    })
+    vim.cmd.colorscheme "catppuccin"
+  end
+}
+-- git url
+ use {
+    'ruifm/gitlinker.nvim',
+    requires = 'nvim-lua/plenary.nvim',
+}
 
+-- intro change
+use {
+    'goolord/alpha-nvim',
+    requires = {
+        'echasnovski/mini.icons',
+        'nvim-lua/plenary.nvim'
+    },
+    config = function ()
+        require'alpha'.setup(require'alpha.themes.dashboard'.config)
+    end
+}
 end)

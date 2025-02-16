@@ -49,3 +49,10 @@ autocmd("BufWinEnter", {
         -- needed if i did not set the branch up correctly
     end,
 })
+
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>gu",
+  ":Git blame<CR>:GBrowse!<CR>",
+  { noremap = true, silent = true }
+)
