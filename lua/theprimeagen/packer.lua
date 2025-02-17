@@ -129,15 +129,4 @@ use {
     requires = 'nvim-lua/plenary.nvim',
 }
 
--- intro change
-use {
-    'goolord/alpha-nvim',
-    requires = {
-        'echasnovski/mini.icons',
-        'nvim-lua/plenary.nvim'
-    },
-    config = function ()
-        require'alpha'.setup(require'alpha.themes.dashboard'.config)
-    end
-}
 end)
