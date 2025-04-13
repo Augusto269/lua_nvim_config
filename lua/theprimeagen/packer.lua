@@ -53,7 +53,6 @@ return require('packer').startup(function(use)
   }
 
   -- Other plugins
-  use ('ThePrimeagen/vim-be-good') -- Game for learning nvim
   use ('kevinhwang91/nvim-hlslens')
   use ('jose-elias-alvarez/null-ls.nvim')
   use ('MunifTanjim/prettier.nvim') -- Prettier / Formatter
@@ -66,12 +65,6 @@ return require('packer').startup(function(use)
   requires = { {'nvim-lua/plenary.nvim'} }
 }
 
-use {
-  "andrewferrier/debugprint.nvim",
-  config = function()
-    require("debugprint").setup()
-  end
-}
   use {
   'phaazon/hop.nvim',
   branch = 'v2', -- optional but strongly recommended
@@ -80,20 +73,7 @@ use {
     require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
   end
 }
--- nvim copilot:
-use {
-  'CopilotC-Nvim/CopilotChat.nvim',
-  requires = {
-    { 'github/copilot.vim' }, -- o 'zbirenbaum/copilot.lua'
-    { 'nvim-lua/plenary.nvim' },
-  },
-  run = 'make tiktoken', -- Solo en macOS o Linux
-  config = function()
-    require('CopilotChat').setup {
-      -- Opciones de configuración
-    }
-  end,
-}
+
 -- auto sesion
 use {
   'rmagatti/auto-session',
@@ -127,6 +107,16 @@ use {
  use {
     'ruifm/gitlinker.nvim',
     requires = 'nvim-lua/plenary.nvim',
+}
+
+-- IA code
+use {
+  "olimorris/codecompanion.nvim",
+  opts = {},
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-treesitter/nvim-treesitter",
+  },
 }
 
 end)
