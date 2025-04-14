@@ -41,12 +41,12 @@ require("codecompanion").setup({
 })
 
 -- Remappings en modo normal (abrir chat, aceptar cambios, etc.)
-vim.keymap.set("n", "<leader>ha", "<cmd>CodeCompanionAccept<CR>", { desc = "Aceptar cambios CodeCompanion" })
-vim.keymap.set("n", "<leader>hc", "<cmd>CodeCompanionChat<CR>",   { desc = "Abrir chat CodeCompanion" })
-vim.keymap.set("n", "<leader>hi", "<cmd>CodeCompanionInline<CR>", { desc = "Acción inline CodeCompanion" })
-vim.keymap.set("n", "<leader>hx", "<cmd>CodeCompanionClose<CR>",  { desc = "Cerrar chat CodeCompanion" })
-vim.keymap.set("n", "<leader>hl", "<cmd>CodeCompanionClear<CR>",  { desc = "Limpiar chat CodeCompanion" })
-vim.keymap.set("n", "<leader>hs", "<cmd>CodeCompanionStop<CR>",   { desc = "Detener generación CodeCompanion" })
+vim.keymap.set("n", "<leader>ka", "<cmd>CodeCompanionAccept<CR>", { desc = "Aceptar cambios CodeCompanion" })
+vim.keymap.set("n", "<leader>kc", "<cmd>CodeCompanionChat<CR>",   { desc = "Abrir chat CodeCompanion" })
+vim.keymap.set("n", "<leader>ki", "<cmd>CodeCompanionInline<CR>", { desc = "Acción inline CodeCompanion" })
+vim.keymap.set("n", "<leader>kx", "<cmd>CodeCompanionClose<CR>",  { desc = "Cerrar chat CodeCompanion" })
+vim.keymap.set("n", "<leader>kl", "<cmd>CodeCompanionClear<CR>",  { desc = "Limpiar chat CodeCompanion" })
+vim.keymap.set("n", "<leader>ks", "<cmd>CodeCompanionStop<CR>",   { desc = "Detener generación CodeCompanion" })
 
 -- Function to obtain the visual selection
 local function get_visual_selection()
