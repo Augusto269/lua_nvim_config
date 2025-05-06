@@ -23,8 +23,28 @@
     hijack_cursor = true,
     sync_root_with_cwd = true,
      view = {
-      adaptive_size = false,
-          },
+  float = {
+    enable = true,
+    open_win_config = function()
+      local screen_w = vim.o.columns
+      local screen_h = vim.o.lines
+      local win_w = math.floor(screen_w * 0.7)
+      local win_h = math.floor(screen_h * 0.7)
+      local win_col = math.floor((screen_w - win_w) / 2)
+      local win_row = math.floor((screen_h - win_h) / 2 - 1)
+
+      return {
+        relative = "editor",
+        border = "rounded",
+        width = win_w,
+        height = win_h,
+        row = win_row,
+        col = win_col,
+      }
+    end,
+  },
+  width = 100, -- Este valor se usa solo si float está desactivado
+},
     renderer = {
       full_name = true,
       group_empty = true,
