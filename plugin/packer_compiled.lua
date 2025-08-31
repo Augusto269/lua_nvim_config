@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/augustogodoy/.cache/nvim/packer_hererocks/2.1.1725453128/share/lua/5.1/?.lua;/Users/augustogodoy/.cache/nvim/packer_hererocks/2.1.1725453128/share/lua/5.1/?/init.lua;/Users/augustogodoy/.cache/nvim/packer_hererocks/2.1.1725453128/lib/luarocks/rocks-5.1/?.lua;/Users/augustogodoy/.cache/nvim/packer_hererocks/2.1.1725453128/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/augustogodoy/.cache/nvim/packer_hererocks/2.1.1725453128/lib/lua/5.1/?.so"
+local package_path_str = "/Users/augustogodoy/.cache/nvim/packer_hererocks/2.1.1744318430/share/lua/5.1/?.lua;/Users/augustogodoy/.cache/nvim/packer_hererocks/2.1.1744318430/share/lua/5.1/?/init.lua;/Users/augustogodoy/.cache/nvim/packer_hererocks/2.1.1744318430/lib/luarocks/rocks-5.1/?.lua;/Users/augustogodoy/.cache/nvim/packer_hererocks/2.1.1744318430/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/augustogodoy/.cache/nvim/packer_hererocks/2.1.1744318430/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -86,7 +86,7 @@ _G.packer_plugins = {
     url = "https://github.com/rmagatti/auto-session"
   },
   catppuccin = {
-    config = { "\27LJ\2\n≠\2\0\0\5\0\r\0\0186\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0005\4\5\0=\4\6\0035\4\a\0=\4\b\3=\3\t\2B\0\2\0016\0\n\0009\0\v\0009\0\f\0'\2\1\0B\0\2\1K\0\1\0\16colorscheme\bcmd\bvim\17integrations\21indent_blankline\1\0\1\fenabled\2\15native_lsp\1\0\1\fenabled\2\1\0\a\bcmp\2\15native_lsp\0\rgitsigns\2\21indent_blankline\0\14telescope\2\15treesitter\2\rnvimtree\2\1\0\2\17integrations\0\fflavour\nmocha\nsetup\15catppuccin\frequire\0" },
+    config = { "\27LJ\2\n≠\2\0\0\5\0\r\0\0186\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0005\4\5\0=\4\6\0035\4\a\0=\4\b\3=\3\t\2B\0\2\0016\0\n\0009\0\v\0009\0\f\0'\2\1\0B\0\2\1K\0\1\0\16colorscheme\bcmd\bvim\17integrations\21indent_blankline\1\0\1\fenabled\2\15native_lsp\1\0\1\fenabled\2\1\0\a\rgitsigns\2\14telescope\2\bcmp\2\rnvimtree\2\15native_lsp\0\21indent_blankline\0\15treesitter\2\1\0\2\17integrations\0\fflavour\nmocha\nsetup\15catppuccin\frequire\0" },
     loaded = true,
     path = "/Users/augustogodoy/.local/share/nvim/site/pack/packer/start/catppuccin",
     url = "https://github.com/catppuccin/nvim"
@@ -100,11 +100,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/augustogodoy/.local/share/nvim/site/pack/packer/start/codecompanion.nvim",
     url = "https://github.com/olimorris/codecompanion.nvim"
-  },
-  ["elixir-tools.nvim"] = {
-    loaded = true,
-    path = "/Users/augustogodoy/.local/share/nvim/site/pack/packer/start/elixir-tools.nvim",
-    url = "https://github.com/elixir-tools/elixir-tools.nvim"
   },
   ["feline.nvim"] = {
     loaded = true,
@@ -231,6 +226,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: catppuccin
+time([[Config for catppuccin]], true)
+try_loadstring("\27LJ\2\n≠\2\0\0\5\0\r\0\0186\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0005\4\5\0=\4\6\0035\4\a\0=\4\b\3=\3\t\2B\0\2\0016\0\n\0009\0\v\0009\0\f\0'\2\1\0B\0\2\1K\0\1\0\16colorscheme\bcmd\bvim\17integrations\21indent_blankline\1\0\1\fenabled\2\15native_lsp\1\0\1\fenabled\2\1\0\a\rgitsigns\2\14telescope\2\bcmp\2\rnvimtree\2\15native_lsp\0\21indent_blankline\0\15treesitter\2\1\0\2\17integrations\0\fflavour\nmocha\nsetup\15catppuccin\frequire\0", "config", "catppuccin")
+time([[Config for catppuccin]], false)
 -- Config for: auto-session
 time([[Config for auto-session]], true)
 try_loadstring("\27LJ\2\nä\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\20suppressed_dirs\1\0\1\20suppressed_dirs\0\1\5\0\0\a~/\15~/Projects\16~/Downloads\6/\nsetup\17auto-session\frequire\0", "config", "auto-session")
@@ -243,10 +242,6 @@ time([[Config for nvim-tree.lua]], false)
 time([[Config for hop.nvim]], true)
 try_loadstring("\27LJ\2\nU\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\tkeys\28etovxqpdygfblzhckisuran\nsetup\bhop\frequire\0", "config", "hop.nvim")
 time([[Config for hop.nvim]], false)
--- Config for: catppuccin
-time([[Config for catppuccin]], true)
-try_loadstring("\27LJ\2\n≠\2\0\0\5\0\r\0\0186\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0005\4\5\0=\4\6\0035\4\a\0=\4\b\3=\3\t\2B\0\2\0016\0\n\0009\0\v\0009\0\f\0'\2\1\0B\0\2\1K\0\1\0\16colorscheme\bcmd\bvim\17integrations\21indent_blankline\1\0\1\fenabled\2\15native_lsp\1\0\1\fenabled\2\1\0\a\bcmp\2\15native_lsp\0\rgitsigns\2\21indent_blankline\0\14telescope\2\15treesitter\2\rnvimtree\2\1\0\2\17integrations\0\fflavour\nmocha\nsetup\15catppuccin\frequire\0", "config", "catppuccin")
-time([[Config for catppuccin]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

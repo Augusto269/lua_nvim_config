@@ -1,6 +1,6 @@
 -- Cargar configuraciones personalizadas
-require("theprimeagen.remap")
-require("theprimeagen.set")
+require("augustog.remap")
+require("augustog.set")
 
 -- Crear grupos de autocmd
 local augroup = vim.api.nvim_create_augroup
@@ -76,8 +76,7 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
--- Configuración de LSP
-require'lspconfig'.volar.setup{}
+
 
 -- Remapear direcciones de movimiento
 -- Mapeos en modo normal
@@ -94,9 +93,6 @@ vim.api.nvim_set_keymap('n', 'u', 'u', { noremap = true })
 vim.api.nvim_set_keymap('v', 'u', ':undo<CR>', { noremap = true, silent = true })
 
 -- Theme visual
- require("catppuccin").setup({ flavour = "frappe" })
-vim.cmd("colorscheme catppuccin")
 -- buffer for auto session
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 vim.o.showtabline = 1  -- Only show the tabline when multiple buffers are open
-
