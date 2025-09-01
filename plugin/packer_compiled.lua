@@ -86,7 +86,7 @@ _G.packer_plugins = {
     url = "https://github.com/rmagatti/auto-session"
   },
   catppuccin = {
-    config = { "\27LJ\2\n­\2\0\0\5\0\r\0\0186\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0005\4\5\0=\4\6\0035\4\a\0=\4\b\3=\3\t\2B\0\2\0016\0\n\0009\0\v\0009\0\f\0'\2\1\0B\0\2\1K\0\1\0\16colorscheme\bcmd\bvim\17integrations\21indent_blankline\1\0\1\fenabled\2\15native_lsp\1\0\1\fenabled\2\1\0\a\rgitsigns\2\14telescope\2\bcmp\2\rnvimtree\2\15native_lsp\0\21indent_blankline\0\15treesitter\2\1\0\2\17integrations\0\fflavour\nmocha\nsetup\15catppuccin\frequire\0" },
+    config = { "\27LJ\2\n­\2\0\0\5\0\r\0\0186\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0005\4\5\0=\4\6\0035\4\a\0=\4\b\3=\3\t\2B\0\2\0016\0\n\0009\0\v\0009\0\f\0'\2\1\0B\0\2\1K\0\1\0\16colorscheme\bcmd\bvim\17integrations\21indent_blankline\1\0\1\fenabled\2\15native_lsp\1\0\1\fenabled\2\1\0\a\15treesitter\2\21indent_blankline\0\rnvimtree\2\14telescope\2\rgitsigns\2\bcmp\2\15native_lsp\0\1\0\2\fflavour\nmocha\17integrations\0\nsetup\15catppuccin\frequire\0" },
     loaded = true,
     path = "/Users/augustogodoy/.local/share/nvim/site/pack/packer/start/catppuccin",
     url = "https://github.com/catppuccin/nvim"
@@ -95,11 +95,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/augustogodoy/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
-  },
-  ["codecompanion.nvim"] = {
-    loaded = true,
-    path = "/Users/augustogodoy/.local/share/nvim/site/pack/packer/start/codecompanion.nvim",
-    url = "https://github.com/olimorris/codecompanion.nvim"
   },
   ["feline.nvim"] = {
     loaded = true,
@@ -228,7 +223,7 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: catppuccin
 time([[Config for catppuccin]], true)
-try_loadstring("\27LJ\2\n­\2\0\0\5\0\r\0\0186\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0005\4\5\0=\4\6\0035\4\a\0=\4\b\3=\3\t\2B\0\2\0016\0\n\0009\0\v\0009\0\f\0'\2\1\0B\0\2\1K\0\1\0\16colorscheme\bcmd\bvim\17integrations\21indent_blankline\1\0\1\fenabled\2\15native_lsp\1\0\1\fenabled\2\1\0\a\rgitsigns\2\14telescope\2\bcmp\2\rnvimtree\2\15native_lsp\0\21indent_blankline\0\15treesitter\2\1\0\2\17integrations\0\fflavour\nmocha\nsetup\15catppuccin\frequire\0", "config", "catppuccin")
+try_loadstring("\27LJ\2\n­\2\0\0\5\0\r\0\0186\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0005\4\5\0=\4\6\0035\4\a\0=\4\b\3=\3\t\2B\0\2\0016\0\n\0009\0\v\0009\0\f\0'\2\1\0B\0\2\1K\0\1\0\16colorscheme\bcmd\bvim\17integrations\21indent_blankline\1\0\1\fenabled\2\15native_lsp\1\0\1\fenabled\2\1\0\a\15treesitter\2\21indent_blankline\0\rnvimtree\2\14telescope\2\rgitsigns\2\bcmp\2\15native_lsp\0\1\0\2\fflavour\nmocha\17integrations\0\nsetup\15catppuccin\frequire\0", "config", "catppuccin")
 time([[Config for catppuccin]], false)
 -- Config for: auto-session
 time([[Config for auto-session]], true)

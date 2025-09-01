@@ -110,12 +110,11 @@ use {
 }
 
 -- IA code
+
 use {
-  "olimorris/codecompanion.nvim",
-  opts = {},
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "nvim-treesitter/nvim-treesitter",
+  'greggh/claude-code.nvim',
+  requires = {
+    'nvim-lua/plenary.nvim',
   },
 }
 

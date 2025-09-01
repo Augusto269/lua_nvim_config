@@ -1,18 +1,14 @@
--- Cargar configuraciones personalizadas
 require("augustog.remap")
 require("augustog.set")
 
--- Crear grupos de autocmd
 local augroup = vim.api.nvim_create_augroup
-local ThePrimeagenGroup = augroup('ThePrimeagen', {})
+local AugustogGroup = augroup('Augustog', {})
 local yank_group = augroup('HighlightYank', {})
 local autocmd = vim.api.nvim_create_autocmd
 
 function R(name)
     require("plenary.reload").reload_module(name)
 end
-
-
 
 vim.api.nvim_create_user_command("GitLog", function()
   vim.cmd("split | term git log --oneline --decorate")
@@ -31,23 +27,21 @@ autocmd('TextYankPost', {
 })
 
 autocmd({"BufWritePre"}, {
-    group = ThePrimeagenGroup,
-    pattern = { "*", "!*.tsx" }, -- Aplica a todos menos a *.tsx
+    group = AugustogGroup,
+    pattern = { "*", "!*.tsx" },
     command = [[%s/\s\+$//e]],
 })
--- Configuración de netrw
+
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- Configuración de colores y clipboard
 vim.cmd[[highlight ColorColumn ctermbg=0 guibg=lightgrey]]
 vim.opt.termguicolors = true
 vim.opt.clipboard = "unnamedplus"
 
--- Configuración de hlslens
 require('hlslens').setup()
 local kopts = {noremap = true, silent = true}
 
@@ -62,11 +56,8 @@ vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], 
 vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
 vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
 
-
 vim.api.nvim_set_keymap('n', '<Leader>l', '<Cmd>noh<CR>', kopts)
 
-
--- Configuración de nvim-treesitter
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "typescript", "javascript", "c", "lua", "vim", "vimdoc", "query", "vue", "heex" },
   sync_install = false,
@@ -76,23 +67,13 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
-
-
--- Remapear direcciones de movimiento
--- Mapeos en modo normal
--- Mapeos en modo normal
 vim.api.nvim_set_keymap('n', 'e', 'k', { noremap = true })
 vim.api.nvim_set_keymap('n', 'h', 'h', { noremap = true })
 vim.api.nvim_set_keymap('n', 't', 'l', { noremap = true })
-vim.api.nvim_set_keymap('n', 'j', 'j', { noremap = true })  -- Mantener 'j' para bajar
+vim.api.nvim_set_keymap('n', 'j', 'j', { noremap = true })
 
--- Asignar 'u' a deshacer en modo normal
 vim.api.nvim_set_keymap('n', 'u', 'u', { noremap = true })
-
--- Asignar 'u' para deshacer en modo visual
 vim.api.nvim_set_keymap('v', 'u', ':undo<CR>', { noremap = true, silent = true })
 
--- Theme visual
--- buffer for auto session
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-vim.o.showtabline = 1  -- Only show the tabline when multiple buffers are open
+vim.o.showtabline = 1
