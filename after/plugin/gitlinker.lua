@@ -8,11 +8,11 @@ require('gitlinker').setup({
     print_url = true,
   },
   callbacks = {
-    -- GitHub y GitLab públicos (ya predefinidos en el plugin)
+    -- Public GitHub and GitLab (already predefined in the plugin)
     ['github.com'] = require('gitlinker.hosts').get_github_type_url,
     ['gitlab.com'] = require('gitlinker.hosts').get_gitlab_type_url,
 
-    -- Agregar GitLab Self-Hosted (tu empresa)
+    -- Add Self-Hosted GitLab (your company)
     ['gitlab.cookunity.com'] = require('gitlinker.hosts').get_gitlab_type_url,
   },
   mappings = '<leader>gu',

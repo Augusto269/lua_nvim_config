@@ -6,11 +6,11 @@ local async = event == "BufWritePost"
 
 null_ls.setup({
     debug = true,
- sources = {
+    sources = {
         null_ls.builtins.formatting.mix.with({
-            command = "mix", -- El comando mix
+            command = "mix", -- The mix command
             args = { "format", "--stdin-filename", "$FILENAME" },
-            filetypes = { "elixir" }, -- Archivos a los que se aplica
+            filetypes = { "elixir" }, -- Files to apply to
         }),
     },  on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then
@@ -23,9 +23,9 @@ null_ls.setup({
         vim.api.nvim_create_autocmd("BufWritePre", {
             buffer = bufnr,
             callback = function()
-                -- Realiza el mismo formateo al guardar que al presionar <Leader>f
-                if vim.bo.filetype ~= "typescriptreact" then  -- Evita archivos TSX
-                    vim.lsp.buf.format({ bufnr = bufnr, async = false })  -- Formateo sincrónico al guardar
+                -- Performs the same formatting on save as when pressing <Leader>f
+                if vim.bo.filetype ~= "typescriptreact" then  -- Avoid TSX files
+                    vim.lsp.buf.format({ bufnr = bufnr, async = false })  -- Synchronous formatting on save
                 end
             end,
             desc = "[LSP] format on save",

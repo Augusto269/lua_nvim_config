@@ -27,7 +27,7 @@ require("ibl").setup {
     },
 }
 
--- Función para alternar las líneas de indentación
+-- Function to toggle indentation lines
 _G.toggle_ibl = function()
     if ibl_enabled then
         require("ibl").setup {

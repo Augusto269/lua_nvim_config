@@ -1,17 +1,13 @@
--- Configuración consolidada de LSP
+-- Consolidated LSP configuration
 local lsp = require("lsp-zero")
 local lspconfig_util = require("lspconfig.util")
 
 lsp.preset("recommended")
 
--- Configuración de Mason
+-- Mason configuration
 require("mason").setup({})
-require("mason-lspconfig").setup({
-  ensure_installed = { "ts_ls", "rust_analyzer", "gopls" },
-  automatic_installation = true,
-})
 
--- Configuración de autocompletado con cmp
+-- Autocompletion configuration with cmp
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = {
@@ -22,14 +18,14 @@ local cmp_mappings = {
 }
 cmp.setup({ mapping = cmp_mappings })
 
--- Preferencias de LSP
+-- LSP preferences
 lsp.set_preferences({
   suggest_lsp_servers = false,
   sign_icons = { error = 'E', warn = 'W', hint = 'H', info = 'I' }
 })
 
--- Configuración de mapeos LSP
-lsp.on_attach(function(_, bufnr)
+-- LSP keymap configuration
+local lsp_attach = function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
   local map = vim.keymap.set
   map("n", "gd", vim.lsp.buf.definition, opts)
@@ -42,26 +38,43 @@ lsp.on_attach(function(_, bufnr)
   map("n", "<leader>vrr", vim.lsp.buf.references, opts)
   map("n", "<leader>vrn", vim.lsp.buf.rename, opts)
   map("i", "<C-h>", vim.lsp.buf.signature_help, opts)
-end)
+end
 
--- Configuración específica de servidores LSP
-lsp.configure("flow", {
-  cmd = { "npx", "ts_ls", "flow", "lsp" },
-  filetypes = { "javascript", "javascriptreact" },
-  root_dir = lspconfig_util.root_pattern(".flowconfig"),
-  settings = {},
+-- Extend lspconfig with custom settings
+lsp.extend_lspconfig({
+  sign_text = true,
+  lsp_attach = lsp_attach,
+  capabilities = require('cmp_nvim_lsp').default_capabilities(),
 })
 
-lsp.configure("gopls", {
-  filetypes = { "go", "gomod" },
-  root_dir = lspconfig_util.root_pattern("go.work", "go.mod", ".git"),
-  settings = {
-    gopls = {
-      analyses = { unusedparams = true, shadow = true },
-      staticcheck = true,
-    },
+-- Mason LSP config with handlers
+require("mason-lspconfig").setup({
+  ensure_installed = { "ts_ls", "rust_analyzer", "gopls" },
+  automatic_installation = true,
+  handlers = {
+    -- Default handler for all servers
+    function(server_name)
+      require('lspconfig')[server_name].setup({})
+    end,
+    -- Custom handler for gopls
+    gopls = function()
+      require('lspconfig').gopls.setup({
+        filetypes = { "go", "gomod" },
+        root_dir = lspconfig_util.root_pattern("go.work", "go.mod", ".git"),
+        settings = {
+          gopls = {
+            analyses = { unusedparams = true, shadow = true },
+            staticcheck = true,
+          },
+        },
+      })
+    end,
   },
 })
 
--- Configuración final
+-- Final configuration
 lsp.setup()
+
+-- Note: Flow LSP configuration removed as 'flow' is not a standard lspconfig server
+-- If you need Flow support, consider using a different TypeScript/JavaScript LSP server
+-- or configure it manually if you have a custom Flow LSP implementation

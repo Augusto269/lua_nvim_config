@@ -11,7 +11,7 @@ return require('packer').startup(function(use)
   use 'lewis6991/gitsigns.nvim'
 
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.4',
+   'nvim-telescope/telescope.nvim', tag = '0.1.4',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
@@ -38,7 +38,7 @@ return require('packer').startup(function(use)
       {'L3MON4D3/LuaSnip'},     -- Required for snippets
     }
   }
-  -- Elixir cfgs
+  -- Elixir configs
  --  use({ "elixir-tools/elixir-tools.nvim", tag = "stable", requires = { "nvim-lua/plenary.nvim" }})
 
   -- Configuration for nvim-tree
@@ -74,7 +74,7 @@ return require('packer').startup(function(use)
   end
 }
 
--- auto sesion
+-- Auto session
 use {
   'rmagatti/auto-session',
   config = function()
@@ -83,13 +83,13 @@ use {
     }
   end
 }
--- theme instalation
+-- Theme installation
 use {
   "catppuccin/nvim",
   as = "catppuccin",
   config = function()
     require("catppuccin").setup({
-      flavour = "mocha", -- Opciones: latte, frappe, macchiato, mocha
+      flavour = "mocha", -- Options: latte, frappe, macchiato, mocha
       integrations = {
         treesitter = true,
         native_lsp = { enabled = true },
@@ -109,13 +109,31 @@ use {
     requires = 'nvim-lua/plenary.nvim',
 }
 
--- IA code
-
+-- AI code - Official Claude Code
 use {
-  'greggh/claude-code.nvim',
+  'coder/claudecode.nvim',
   requires = {
-    'nvim-lua/plenary.nvim',
+    'folke/snacks.nvim', -- Required for enhanced terminal
   },
 }
+-- AI autocomplete
+use {
+  "Exafunction/windsurf.nvim",
+  requires = {
+    "nvim-lua/plenary.nvim",
+    "hrsh7th/nvim-cmp",
+  },
+  config = function()
+    -- Do not start codeium on startup
+    vim.g.codeium_disable_bindings = 1
 
+    -- Silence crash messages
+    vim.notify = function(msg, level, opts)
+      if msg:match("codeium") then
+        return
+      end
+      vim.api.nvim_notify(msg, level, opts)
+    end
+  end
+}
 end)

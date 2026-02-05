@@ -6,7 +6,7 @@
       return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
     end
 
-    -- Define tus atajos de teclado aquí
+    -- Define your keyboard shortcuts here
     vim.keymap.set('n', '<CR>', api.node.open.edit, opts('Open'))
     vim.keymap.set('n', '<C-v>', api.node.open.vertical, opts('Open: Vertical Split'))
     vim.keymap.set('n', '<C-x>', api.node.open.horizontal, opts('Open: Horizontal Split'))
@@ -43,7 +43,7 @@
       }
     end,
   },
-  width = 100, -- Este valor se usa solo si float está desactivado
+  width = 100, -- This value is only used if float is disabled
 },
     renderer = {
       full_name = true,

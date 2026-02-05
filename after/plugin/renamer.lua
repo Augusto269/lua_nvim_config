@@ -1,9 +1,8 @@
 require('renamer').setup()
 
 vim.api.nvim_set_keymap(
-  'n', -- Modo normal
-  '<Space>rn', -- Combinación de teclas
-  '<cmd>lua require("renamer").rename()<CR>', -- Comando a ejecutar
-  { noremap = true, silent = true } -- Opciones (sin mapeo recursivo y silencioso)
+  'n', -- Normal mode
+  '<Space>rn', -- Key combination
+  '<cmd>lua require("renamer").rename()<CR>', -- Command to execute
+  { noremap = true, silent = true } -- Options (no recursive mapping and silent)
 )
-

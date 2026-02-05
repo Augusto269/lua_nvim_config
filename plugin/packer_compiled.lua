@@ -86,10 +86,15 @@ _G.packer_plugins = {
     url = "https://github.com/rmagatti/auto-session"
   },
   catppuccin = {
-    config = { "\27LJ\2\n≠\2\0\0\5\0\r\0\0186\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0005\4\5\0=\4\6\0035\4\a\0=\4\b\3=\3\t\2B\0\2\0016\0\n\0009\0\v\0009\0\f\0'\2\1\0B\0\2\1K\0\1\0\16colorscheme\bcmd\bvim\17integrations\21indent_blankline\1\0\1\fenabled\2\15native_lsp\1\0\1\fenabled\2\1\0\a\15treesitter\2\21indent_blankline\0\rnvimtree\2\14telescope\2\rgitsigns\2\bcmp\2\15native_lsp\0\1\0\2\fflavour\nmocha\17integrations\0\nsetup\15catppuccin\frequire\0" },
+    config = { "\27LJ\2\n≠\2\0\0\5\0\r\0\0186\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0005\4\5\0=\4\6\0035\4\a\0=\4\b\3=\3\t\2B\0\2\0016\0\n\0009\0\v\0009\0\f\0'\2\1\0B\0\2\1K\0\1\0\16colorscheme\bcmd\bvim\17integrations\21indent_blankline\1\0\1\fenabled\2\15native_lsp\1\0\1\fenabled\2\1\0\a\15native_lsp\0\21indent_blankline\0\15treesitter\2\14telescope\2\bcmp\2\rgitsigns\2\rnvimtree\2\1\0\2\fflavour\nmocha\17integrations\0\nsetup\15catppuccin\frequire\0" },
     loaded = true,
     path = "/Users/augustogodoy/.local/share/nvim/site/pack/packer/start/catppuccin",
     url = "https://github.com/catppuccin/nvim"
+  },
+  ["claudecode.nvim"] = {
+    loaded = true,
+    path = "/Users/augustogodoy/.local/share/nvim/site/pack/packer/start/claudecode.nvim",
+    url = "https://github.com/coder/claudecode.nvim"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
@@ -203,6 +208,11 @@ _G.packer_plugins = {
     path = "/Users/augustogodoy/.local/share/nvim/site/pack/packer/start/renamer.nvim",
     url = "https://github.com/filipdutescu/renamer.nvim"
   },
+  ["snacks.nvim"] = {
+    loaded = true,
+    path = "/Users/augustogodoy/.local/share/nvim/site/pack/packer/start/snacks.nvim",
+    url = "https://github.com/folke/snacks.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/augustogodoy/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -217,26 +227,36 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/augustogodoy/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["windsurf.nvim"] = {
+    config = { "\27LJ\2\ne\0\3\b\0\5\0\15\18\5\0\0009\3\0\0'\6\1\0B\3\3\2\15\0\3\0X\4\1ÄK\0\1\0006\3\2\0009\3\3\0039\3\4\3\18\5\0\0\18\6\1\0\18\a\2\0B\3\4\1K\0\1\0\16nvim_notify\bapi\bvim\fcodeium\nmatchN\1\0\2\0\5\0\b6\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0003\1\4\0=\1\3\0K\0\1\0\0\vnotify\29codeium_disable_bindings\6g\bvim\0" },
+    loaded = true,
+    path = "/Users/augustogodoy/.local/share/nvim/site/pack/packer/start/windsurf.nvim",
+    url = "https://github.com/Exafunction/windsurf.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: catppuccin
-time([[Config for catppuccin]], true)
-try_loadstring("\27LJ\2\n≠\2\0\0\5\0\r\0\0186\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0005\4\5\0=\4\6\0035\4\a\0=\4\b\3=\3\t\2B\0\2\0016\0\n\0009\0\v\0009\0\f\0'\2\1\0B\0\2\1K\0\1\0\16colorscheme\bcmd\bvim\17integrations\21indent_blankline\1\0\1\fenabled\2\15native_lsp\1\0\1\fenabled\2\1\0\a\15treesitter\2\21indent_blankline\0\rnvimtree\2\14telescope\2\rgitsigns\2\bcmp\2\15native_lsp\0\1\0\2\fflavour\nmocha\17integrations\0\nsetup\15catppuccin\frequire\0", "config", "catppuccin")
-time([[Config for catppuccin]], false)
 -- Config for: auto-session
 time([[Config for auto-session]], true)
 try_loadstring("\27LJ\2\nä\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\20suppressed_dirs\1\0\1\20suppressed_dirs\0\1\5\0\0\a~/\15~/Projects\16~/Downloads\6/\nsetup\17auto-session\frequire\0", "config", "auto-session")
 time([[Config for auto-session]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
-time([[Config for nvim-tree.lua]], false)
 -- Config for: hop.nvim
 time([[Config for hop.nvim]], true)
 try_loadstring("\27LJ\2\nU\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\tkeys\28etovxqpdygfblzhckisuran\nsetup\bhop\frequire\0", "config", "hop.nvim")
 time([[Config for hop.nvim]], false)
+-- Config for: windsurf.nvim
+time([[Config for windsurf.nvim]], true)
+try_loadstring("\27LJ\2\ne\0\3\b\0\5\0\15\18\5\0\0009\3\0\0'\6\1\0B\3\3\2\15\0\3\0X\4\1ÄK\0\1\0006\3\2\0009\3\3\0039\3\4\3\18\5\0\0\18\6\1\0\18\a\2\0B\3\4\1K\0\1\0\16nvim_notify\bapi\bvim\fcodeium\nmatchN\1\0\2\0\5\0\b6\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0003\1\4\0=\1\3\0K\0\1\0\0\vnotify\29codeium_disable_bindings\6g\bvim\0", "config", "windsurf.nvim")
+time([[Config for windsurf.nvim]], false)
+-- Config for: catppuccin
+time([[Config for catppuccin]], true)
+try_loadstring("\27LJ\2\n≠\2\0\0\5\0\r\0\0186\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0005\4\5\0=\4\6\0035\4\a\0=\4\b\3=\3\t\2B\0\2\0016\0\n\0009\0\v\0009\0\f\0'\2\1\0B\0\2\1K\0\1\0\16colorscheme\bcmd\bvim\17integrations\21indent_blankline\1\0\1\fenabled\2\15native_lsp\1\0\1\fenabled\2\1\0\a\15native_lsp\0\21indent_blankline\0\15treesitter\2\14telescope\2\bcmp\2\rgitsigns\2\rnvimtree\2\1\0\2\fflavour\nmocha\17integrations\0\nsetup\15catppuccin\frequire\0", "config", "catppuccin")
+time([[Config for catppuccin]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
+time([[Config for nvim-tree.lua]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
