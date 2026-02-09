@@ -75,8 +75,9 @@ vim.keymap.set('n', '<leader>aa', function()
                   vim.b[bufnr].claudecode_diff_new_win
   
   if is_diff then
-    -- Save the file to accept (standard Neovim diff behavior)
+    -- Save the file to accept, then close and remove buffer
     vim.cmd('write')
+    vim.cmd('bdelete')
   else
     -- Try Claude Code command as fallback
     local success = pcall(function()
@@ -98,8 +99,8 @@ vim.keymap.set('n', '<leader>ad', function()
                   vim.b[bufnr].claudecode_diff_new_win
   
   if is_diff then
-    -- Close without saving to deny (standard Neovim diff behavior)
-    vim.cmd('quit!')
+    -- Close without saving and remove buffer from list
+    vim.cmd('bwipeout!')
   else
     -- Try Claude Code command as fallback
     local success = pcall(function()
